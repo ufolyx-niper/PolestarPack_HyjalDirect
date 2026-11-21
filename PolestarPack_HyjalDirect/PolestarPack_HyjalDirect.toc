@@ -2,7 +2,7 @@
 ## Title: Polestar: Timbermaw to Mount Hyjal
 ## Title-zhCN: Polestar 猎萨 · 木喉到海加尔
 ## Notes-zhCN: 部落双人，木喉中立、冬泉进山、海加尔邮政与树皮背包、山上野外任务。
-## Version: 1.1.0
+## Version: 1.2.0
 ## Author: Codex
 ## Dependencies: Polestar
 ## X-Polestar-Pack: hyjal-direct

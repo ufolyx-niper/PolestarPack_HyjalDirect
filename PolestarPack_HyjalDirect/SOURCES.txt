@@ -24,3 +24,22 @@ This hand-authored pack uses GPL version 3. The compiler exception in the
 upstream notices describes the upstream data files. The incorporated guide
 data are credited above. Full upstream component notices:
 https://github.com/fitzforge/polestar/blob/main/THIRD_PARTY.md
+
+1.2.0 quest additions: checked against the installed Polestar_QuestDB and the Forever quest records for the IDs below. The veteran's two identically named Praise quests converge at the broken cannon. Elite classification also uses the zone index, Polestar's group steps and elite combat targets. Quest record examples:
+https://db.icy-veins.com/wow-forever/quests/zones/mount-hyjal/
+https://www.wowhead.com/forever/quest=97119/now-were-cooking
+https://zephras.com/forever/enUS/quest/90854/
+https://zephras.com/forever/enUS/quest/92446/
+https://zephras.com/forever/enUS/quest/96998/
+https://zephras.com/forever/enUS/quest/96999/
+https://zephras.com/forever/enUS/quest/92101/
+https://zephras.com/forever/enUS/quest/93510/
+https://zephras.com/forever/enUS/quest/92102/
+https://www.wowhead.com/forever/quest=93551/praise
+https://zephras.com/forever/enUS/quest/93567/
+https://zephras.com/forever/enUS/quest/96558/
+https://zephras.com/forever/enUS/quest/96983/
+https://zephras.com/forever/enUS/quest/97010/
+https://zephras.com/forever/enUS/quest/92329/
+https://zephras.com/forever/enUS/quest/99670/
+https://zephras.com/forever/enUS/quest/93521/
