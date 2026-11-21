@@ -2,7 +2,7 @@ local _, R = ...
 if not R.chapters then return end
 local s
 
-s = R.chapter("foothills", "05 腐化山麓 · 隐士、工坊与乌鸦", "从东南山口向西。月光林地一趟用于打开山上荒野诸神和山顶法杖后续。", 2482, 54, "wilds")
+s = R.chapter("foothills","腐化山麓")
 s("山麓东南 · 路边齿轮与隐士", "从山口沿西南山路找松动的齿轮，交给住在小屋里的隐士。", {
     { t = "accept", quest = 94479, title = "变废为宝", object = 650234, objName = "Loose Cog", map = 2482, x = 75.3, y = 77.34, minLevel = 54 },
     { t = "turnin", quest = 91952, title = "腐化之源", npc = 256222, npcName = "Ketharas", map = 2482, x = 73.27, y = 81.7, optional = true },
@@ -151,15 +151,15 @@ s("隐士与乌鸦 · 把契约带回山上", nil, {
     { t = "accept", quest = 96931, title = "向山上进发", npc = 257753, npcName = "Curious Crow", map = 2482, x = 48.16, y = 85.72, pre = { 96930 }, minLevel = 54 },
 })
 
-s = R.chapter("wilds", "06 西北哨站 · 荒野诸神与艾维娜神殿", "先交部落的山口和乌鸦引导。西坡任务转向宁静摇篮和东北神殿。", 2482, 54, "summit")
-s("西北部落哨站 · 向两人报到", "山口引导在奥尔塔克处交，得200树皮声望。乌鸦的引导交泽特甘。未做前章可以先做当地独立任务。", {
+s = R.chapter("wilds","西北哨站与神殿")
+s("西北部落哨站 · 向两人报到", "山口引导在奥尔塔克处交，得200树皮声望。乌鸦的引导交泽特甘。先前没接引导时，可先做哨站当地任务。", {
     { t = "turnin", quest = 94782, title = "西部哨站", npc = 244511, npcName = "Zet'gan", map = 2482, x = 13.92, y = 54.86 },
     { t = "turnin", quest = 96830, title = "远视指引", npc = 244512, npcName = "Ortak Lomgok", map = 2482, x = 12.94, y = 52.88 },
     { t = "accept", quest = 92592, title = "最后的死亡", npc = 244511, minLevel = 57, npcName = "Zet'gan", map = 2482, x = 13.82, y = 54.57 },
     { t = "accept", quest = 95026, title = "清除疫病", npc = 244511, minLevel = 54, npcName = "Zet'gan", map = 2482, x = 13.82, y = 54.57 },
     { t = "accept", quest = 92609, title = "飞舞的羽毛", npc = 244511, minLevel = 54, npcName = "Zet'gan", map = 2482, x = 13.82, y = 54.57 },
 })
-s("部落哨站 · 草药和旧旗", "旗帜在北面达埃古恩废墟，带着第七章一起做。", {
+s("部落哨站 · 草药和旧旗", "旗帜在北面达埃古恩废墟，留到后面去废墟时一起做。", {
     { t = "accept", quest = 96616, title = "疗愈伤者的草药", npc = 244512, npcName = "Ortak Lomgok", map = 2482, x = 12.9, y = 52.9, minLevel = 54 },
     { t = "accept", quest = 91794, title = "先祖的旗帜", npc = 265788, npcName = "Kal'tinzan", map = 2482, x = 13.7, y = 53.1, minLevel = 54 },
 })
@@ -250,11 +250,11 @@ s("回神殿交遗物 · 返回摇篮带信", nil, {
     { t = "accept", quest = 96991, title = "山路援手", npc = 267109, npcName = "Galvinquam Leafsyre", map = 2482, x = 32.89, y = 54.44, pre = { 96979 }, minLevel = 56 },
     { t = "accept", quest = 96964, title = "聪明的生灵", npc = 267158, npcName = "Jereman", map = 2482, x = 41.27, y = 45.33, pre = { 96931 }, minLevel = 54 },
 })
-s("树皮地穴 · 回交护符", "准备直取第二个包可马上回西南；准备先清山北，亦可留到第八章回交。", {
+s("树皮地穴 · 回交护符", "经过西南就交；准备先清山北时，可留到购包前回地穴再交。", {
     { t = "turnin", quest = 93827, optional = true, title = "风中的护符", npc = 256660, npcName = "Thobon Sapclaw", map = 2482, x = 18.5, y = 78.6 },
 })
 
-s = R.chapter("summit", "07 达埃古恩与永恒峰 · 山顶收尾", "北部恶魔、法师塔和永恒峰任务。精英量力而行，可随时切换第八章先买包。", 2482, 54, "satchel")
+s = R.chapter("summit","达埃古恩与永恒峰")
 s("北部营地 · 军团、剑圣与狐狸", nil, {
     { t = "accept", quest = 92960, title = "汲取短暂精华", npc = 263406, npcName = "Elaena Moonwhisper", map = 2482, x = 43.77, y = 32.24, minLevel = 54 },
     { t = "accept", quest = 95793, title = "遏制恶魔大军", npc = 249052, npcName = "Witherbeard", map = 2482, x = 43.74, y = 31.94, minLevel = 54 },
@@ -371,7 +371,7 @@ s("北侧高地 · 用山之杖挑战维翰", "先用法杖解除维翰的力量
     { t = "complete", quest = 92833, map = 2482, x = 76.7, y = 33.6 },
     { t = "accept", quest = 93521, title = "诸神的挑战者", object = 710894, objName = "Bookshelf", map = 2482, x = 76.9, y = 35.4 },
 })
-s("永恒峰交任务 · 回山麓隐士收尾", "峰顶交任务后带消息飞往山麓，隐士小屋在东南。下一章返回树皮地穴换包。", {
+s("永恒峰交任务 · 回山麓隐士收尾", "峰顶交任务后带消息飞往山麓，隐士小屋在东南。随后回树皮地穴换包。", {
     { t = "turnin", quest = 93547, title = "荆棘之策", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6 },
     { t = "turnin", quest = 96303, title = "迷雾中的记忆", npc = 254915, npcName = "Thisalee Crow", map = 2482, x = 69, y = 50 },
     { t = "turnin", quest = 96302, title = "遗骸净礼", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7 },

@@ -10,8 +10,8 @@ local function salfa(t,q,title) return contact(t,q,title,11556,"萨尔法",W,27.
 local function kill(q,id,name,n,index,map,x,y)
     return g("kill",map,x,y,{quest=q,npc=id,target=name,count=n,oi=index})
 end
-local s = R.chapter("timbermaw","01 木喉要塞 · 从死木村到中立","在费伍德南口集合。两人分别核对木喉要塞声望。",F,50,"winter")
-s("费伍德南口 · 格拉兹","从灰谷进费伍德后沿大路向北。已到木喉中立的角色可以打开第二章。",{grazle("accept",8460,"木喉熊怪盟友")},beforeNeutral)
+local s = R.chapter("timbermaw","木喉要塞")
+s("费伍德南口 · 格拉兹","从灰谷进费伍德后沿大路向北。木喉已中立时，路线自动接续到冬泉谷。",{grazle("accept",8460,"木喉熊怪盟友")},beforeNeutral)
 s("经过翡翠圣地 · 可带进山的口信","55级经过格雷塔时看她是否提供「腐化之源」，有就顺手带到海加尔隐士处。无需回头。",{
     {t="accept",quest=91952,title="腐化之源",npc=10922,npcName="格雷塔·苔蹄",map=F,x=51.07,y=82.17,minLevel=55,optional=true},
 },beforeNeutral)
@@ -33,7 +33,7 @@ s("纳菲恩 · 开放羽毛交付","交完可反复用五根死木羽毛换声�
 s("木喉中立 · 在洞口核对两人声望","继续打北死木村，五根羽毛找纳菲恩交一次。达到冷淡后也可穿洞走冬泉支路，找出口萨尔法做冬泉熊怪和五颗魂珠交付。两人都到中立就往永望镇走。",{
     g("rep",F,63.7,6.1,{faction=576,factionName="木喉要塞",standing=4}),
 })
-s = R.chapter("winter","02 冬泉谷 · 药水与进山","经木喉隧道进永望镇，取药后从暗语峡谷上山。已经在山上可直接打开第三或第四章。",W,50,"mail")
+s = R.chapter("winter","冬泉谷与进山")
 local unknownSummit = {k="taxi",node=559,name="永恒峰",neg=true}
 local outside = {k="zone",area=616,name="Mount Hyjal",neg=true}
 local approach = {unknownSummit,outside}
@@ -66,16 +66,16 @@ s("暗语峡谷 · 在安全处喝药","从永望镇向南。进入精英巡逻�
 s("穿过峡谷 · 进入海加尔山","过地图边界后沿山路向西。",{
     g("enter",H,85.5,73.2,{area=616,location="海加尔山"}),
 },approach)
-s("部落山口 · 接西北哨站引导","进山第一处部落营地。把信带到第六章的西北哨站，交付给树皮声望。",{
+s("部落山口 · 接西北哨站引导","进山第一处部落营地。把信带到西北哨站，交付给树皮声望。",{
     contact("accept",96830,"远视指引",266802,"Thark Gorax",H,79.98,70.73,54),
 })
 s("腐化山麓 · 学飞行点","两人都找 Bluebell 对话。",{
     g("getfp",H,54.97,82.78,{node=3242,area=16853,npc=260626,npcName="Bluebell",location="腐化山麓"}),
 })
-s("永恒峰 · 学飞行点","沿山路上峰。若两人都到56，下一章直接送信；55级可先开第四章树皮做经验，到56随时切回第三章。",{
+s("永恒峰 · 学飞行点","沿山路上峰。达到56级就开始送信。55级先做树皮任务，升级后路线会指向邮差。",{
     g("getfp",H,68.7,44.1,{node=559,area=16849,npc=41861,npcName="Fayran Elthas",location="永恒峰"}),
 })
-s=R.chapter("mail","03 永恒峰 · 邮政背包","56级起，永恒峰、永望镇、永恒峰。完成后前往西南树皮地穴。",H,55,"burrow")
+s=R.chapter("mail","永恒峰邮政")
 local mailPending={{k="turnedin",q=93269,neg=true}}
 local function post(t,q,title)
     if (q==93197 and t=="accept") or (q==93269 and t=="turnin") then
@@ -83,7 +83,7 @@ local function post(t,q,title)
     end
     return contact(t,q,title,11118,"旅店老板维兹奇",W,61.31,38.89,56)
 end
-s("56级 · 开始送信","还在55级时直接打开第四章做树皮入门，或做第五章山麓任务；升到56后随时回来。",{g("level",H,20.6,71.7,{level=56})},mailPending)
+s("56级 · 开始送信","55级先到西南找布雷鲁法做树皮入门；升到56级，回来找山顶的塞贝莉娅。",{g("level",H,20.6,71.7,{level=56,optional=true})},mailPending)
 s("永恒峰 · 第一封信",nil,{post("accept",93197,"修复通讯")},mailPending)
 s("飞往永望镇 · 到旅店找维兹","从永恒峰经山麓飞回永望镇。",{
     post("turnin",93197,"修复通讯"),post("accept",93406,"找回邮件"),
