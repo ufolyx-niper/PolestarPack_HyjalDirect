@@ -2,8 +2,7 @@ local _, R = ...
 if not R.chapters then return end
 local F, W, H = 1448, 1452, 2482
 local g, contact = R.goal, R.contact
-local north = {k = "rep", faction = 576, standing = 4, neg = true}
-local beforeNeutral = {north}
+local beforeUnfriendly = {{k="rep", faction=576, standing=3, neg=true}}
 local function grazle(t,q,title) return contact(t,q,title,11554,"格拉兹",F,50.9,84.9,45) end
 local function nafien(t,q,title) return contact(t,q,title,15395,"纳菲恩",F,64.7,8.2,45) end
 local function salfa(t,q,title) return contact(t,q,title,11556,"萨尔法",W,27.75,34.53,45) end
@@ -11,40 +10,69 @@ local function kill(q,id,name,n,index,map,x,y)
     return g("kill",map,x,y,{quest=q,npc=id,target=name,count=n,oi=index})
 end
 local s = R.chapter("timbermaw","木喉要塞")
-s("费伍德南口 · 格拉兹","从灰谷进费伍德后沿大路向北。木喉已中立时，路线自动接续到冬泉谷。",{grazle("accept",8460,"木喉熊怪盟友")},beforeNeutral)
+s("费伍德南口 · 格拉兹","从灰谷进费伍德后沿大路向北。两人各自查木喉声望，达到冷淡就去北口过洞。",{grazle("accept",8460,"木喉熊怪盟友")},beforeUnfriendly)
 s("经过翡翠圣地 · 可带进山的口信","55级经过格雷塔时看她是否提供「腐化之源」，有就顺手带到海加尔隐士处。无需回头。",{
     {t="accept",quest=91952,title="腐化之源",npc=10922,npcName="格雷塔·苔蹄",map=F,x=51.07,y=82.17,minLevel=55,optional=true},
-},beforeNeutral)
+},{{k="rep",faction=576,standing=4,neg=true}})
 s("南死木村 · 三类各六只","各自留死木头饰羽毛。回南口交任务时，五根一组交给格拉兹。",{
     kill(8460,7153,"死木战士",6,1,F,46.2,90),kill(8460,7155,"死木探路者",6,2,F,46.2,90),
     kill(8460,7154,"死木园丁",6,3,F,46.2,90),
-},beforeNeutral)
-s("格拉兹 · 回报并带话北上",nil,{grazle("turnin",8460,"木喉熊怪盟友"),grazle("accept",8462,"与纳菲恩交谈")},beforeNeutral)
+},beforeUnfriendly)
+s("格拉兹 · 回报并带话北上",nil,{grazle("turnin",8460,"木喉熊怪盟友"),grazle("accept",8462,"与纳菲恩交谈")},beforeUnfriendly)
 s("费伍德北洞口 · 纳菲恩","沿大路北上，北端隧道口接下一批死木目标。",{
     nafien("turnin",8462,"与纳菲恩交谈"),nafien("accept",8461,"北方的死木熊怪"),
-},beforeNeutral)
+},beforeUnfriendly)
 s("北死木村 · 三类各六只","两人各自拾羽毛。",{
     kill(8461,7156,"死木巢穴守卫",6,1,F,62,9),kill(8461,7157,"死木复仇者",6,2,F,62,9),
     kill(8461,7158,"死木萨满祭司",6,3,F,62,9),
-},beforeNeutral)
+},beforeUnfriendly)
 s("纳菲恩 · 开放羽毛交付","交完可反复用五根死木羽毛换声望。",{
     nafien("turnin",8461,"北方的死木熊怪"),nafien("accept",8465,"与萨尔法交谈"),
-},beforeNeutral)
-s("木喉中立 · 在洞口核对两人声望","继续打北死木村，五根羽毛找纳菲恩交一次。达到冷淡后也可穿洞走冬泉支路，找出口萨尔法做冬泉熊怪和五颗魂珠交付。两人都到中立就往永望镇走。",{
-    g("rep",F,63.7,6.1,{faction=576,factionName="木喉要塞",standing=4}),
+},beforeUnfriendly)
+s("木喉冷淡 · 在洞口核对两人声望","仍敌对时打北死木村，已开放羽毛交付可每五根交一次。两人的木喉要塞声望都到冷淡，即可穿洞去冬泉谷。",{
+    g("rep",F,63.7,6.1,{faction=576,factionName="木喉要塞",standing=3}),
 })
-s = R.chapter("winter","冬泉谷与进山")
+-- A positive 'when' latch can survive a reputation change or upgrade.
+-- Apply the current character's standing even to previously latched quest rows.
+function R.watchTimbermaw(guideId)
+    local rows = R.chapters.timbermaw.steps
+    local hidden = {classes={"!HUNTER","!SHAMAN"}}
+    local wasPassable
+    local function refresh()
+        local readStanding = Polestar.Compat.GetFactionStanding
+        local standing = readStanding and readStanding(576)
+        local passable = type(standing) == "number" and standing >= 3
+        if passable == wasPassable then return end
+        wasPassable = passable
+        for _, row in ipairs(rows) do
+            if row.when == beforeUnfriendly then row.only = passable and hidden or nil end
+        end
+        local engine = Polestar.Engine
+        local guide = engine and engine.GetGuide and engine.GetGuide()
+        if guide and guide.id == guideId then engine.RequestUpdate() end
+    end
+    Polestar.OnLogin(refresh)
+    Polestar.RegisterEvent("PLAYER_ENTERING_WORLD",refresh)
+    Polestar.RegisterEvent("UPDATE_FACTION",refresh)
+end
+
+local extra
+s, extra = R.chapter("winter","冬泉谷与进山")
 local unknownSummit = {k="taxi",node=559,name="永恒峰",neg=true}
 local outside = {k="zone",area=616,name="Mount Hyjal",neg=true}
 local approach = {unknownSummit,outside}
-s("木喉隧道 · 从冬泉出口出洞","费伍德北口进洞。分叉走通往冬泉谷的出口，沿大路向东到永望镇。已在镇上可跳到航点。",{
+s("木喉隧道 · 从冬泉出口出洞","两人各自到冷淡后，从费伍德北口进洞，分叉走冬泉谷，沿大路向东到永望镇。已经打好的南北死木任务可以顺手交。准备打黑喉时，可留在北死木村或在冬泉出口补中立。",{
     g("enter",W,27.75,34.53,{area=618,location="冬泉谷"}),
 },{outside,unknownSummit,{k="taxi",node=53,name="永望镇",neg=true}})
+extra("黑喉要塞准备 · 木喉中立（可选）","准备打黑喉要塞时，打北死木村熊怪，开放交付后五根羽毛交纳菲恩；也可到冬泉出口找萨尔法做冬泉熊怪任务、交魂珠。",{
+    g("rep",F,63.7,6.1,{faction=576,factionName="木喉要塞",standing=4,optional=true}),
+    {t="note",text="想先拿两个背包，就直接去永望镇；树皮地穴声望上山后再做。"},
+}, "darkwhisper-departure")
 s("冬泉出口 · 向萨尔法回报",nil,{salfa("turnin",8465,"与萨尔法交谈")},{{k="onquest",q={8465}}})
 s("永望镇 · 部落飞行点","往镇内东北侧找尤格雷克。去海加尔、月光林地和回镇送信都会用到。",{
     g("getfp",W,60.43,36.36,{node=53,area=2255,npc=11139,npcName="尤格雷克",location="永望镇"}),
 })
-s("准备隐遁药水 · 两人到55级","未到55级，可在永望镇做乌米的雪人毛皮，或回萨尔法做冬泉熊怪；木喉还差声望时优先熊怪。",{
+s("准备隐遁药水 · 两人到55级","未到55级，可在永望镇做乌米的雪人毛皮，或顺路做萨尔法的冬泉熊怪任务补经验。",{
     g("level",W,64.1,39.8,{level=55,grind=7458,npcName="冰蓟雪人"}),
 },approach)
 local function potion(q,repeatDose)
@@ -62,7 +90,7 @@ potion(92859,false)
 potion(98462,true)
 s("暗语峡谷 · 在安全处喝药","从永望镇向南。进入精英巡逻区之前各用一剂药水；猎人先收宠。沿峡谷看巡逻间隙一起走。",{
     g("goto",W,50.5,82.8,{text="暗语峡谷南段"}),
-},approach)
+},approach).label = "darkwhisper-departure"
 s("穿过峡谷 · 进入海加尔山","过地图边界后沿山路向西。",{
     g("enter",H,85.5,73.2,{area=616,location="海加尔山"}),
 },approach)

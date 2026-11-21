@@ -73,9 +73,10 @@ assert(Polestar.RegisterGuide({
     id=mainId, pack="hyjal-direct", title="猎萨 · 木喉到海加尔", category="Leveling",
     faction="Horde", classes={"HUNTER","SHAMAN"}, zone=1448, minLevel=50, maxLevel=60,
     version=1, steps=steps, keywords={"海加尔山","木喉","猎萨","背包","Hyjal"},
-    why="从费伍德木喉中立到海加尔邮政背包、山上任务和树皮背包，一条路线连续指引。",
+    why="从费伍德木喉冷淡通行到海加尔邮政背包、山上任务和树皮背包，一条路线连续指引。",
 }))
 Polestar.RetireGuides("hyjal-direct", retired)
+R.watchTimbermaw(mainId)
 
 -- The engine restores retired open tabs by pack, but their checkmarks and pins
 -- use chapter-local indices. Only migrate states from the verified 1.0.0 shape.
