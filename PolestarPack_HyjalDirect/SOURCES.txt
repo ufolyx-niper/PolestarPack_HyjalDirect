@@ -1,0 +1,26 @@
+Polestar native guide format 11. Independently registered local Horde guide.
+Polestar Experimental, Mount Hyjal 57–60, installed version 0.4.1.1. Selected objective IDs, coordinates and route segments adapted for Horde. See LICENSE and LICENSE-DATA.txt.
+https://polestar.guide/guides/experimental/hyjal-1
+https://polestar.guide/guides/reputation/timbermaw-hold
+https://github.com/fitzforge/polestar
+Ati's Hyjal 56–60 community guide, Alliance. Reference for travel, quests, the den escort and summit actions. Author reports in-game verification through Elderwild; final chapter unplayed. No RestedXP software or guide text included.
+https://github.com/csdworks/atis-hyjal-56-60-guide/tree/8cb06647a0344e24a62a1fa10527d605b43e0eb1
+Installed Polestar_QuestDB and Polestar_zhCN for entity locations, faction, quest prerequisites, objective order and client names. Polestar incorporates QuestieDB Forever data; its data notices are bundled. Chinese directions and supplemental task names are guide text. Combat and item credit follows quest log IDs.
+Reference items: Hyjal Postal Satchel 260307, Barkskin Satchel 262801, Deadwood Tribal Beads 263439. Vendor Dala Fairmaw 256629, Barkskin Burrow 2747. Timbermaw Hold 576. Routes and quest lookup:
+https://zephras.com/forever/enUS/quest/93269/
+https://zephras.com/forever/enUS/quest/93952/
+https://www.wowhead.com/forever/item=262801/barkskin-satchel
+https://db.icy-veins.com/wow-forever/quests/93925
+https://www.zockify.com/forever/reputation/barkskin-burrow/
+https://zephras.com/forever/enUS/quest/91698/
+https://zephras.com/forever/enUS/quest/95108/
+https://zephras.com/forever/enUS/quest/95107/
+https://zephras.com/forever/enUS/quest/95273/
+https://zephras.com/forever/enUS/quest/96622/
+https://www.method.gg/wow-forever/get-a-free-18-slot-bag-and-running-speed-trinket-in-wow-forever-hyjal-quest-chain
+
+The original Polestar LICENSE and LICENSE-DATA.txt are upstream notices.
+This hand-authored pack uses GPL version 3. The compiler exception in the
+upstream notices describes the upstream data files. The incorporated guide
+data are credited above. Full upstream component notices:
+https://github.com/fitzforge/polestar/blob/main/THIRD_PARTY.md
