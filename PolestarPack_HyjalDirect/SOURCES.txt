@@ -46,3 +46,7 @@ https://zephras.com/forever/enUS/quest/93521/
 
 本次任务进度、前置与位置核对参考 Polestar v0.4.2.1 正式包及其任务数据库。
 https://github.com/fitzforge/polestar/releases/tag/v0.4.2.1
+
+Bags guide: quest 93952 grants 400 Barkskin Burrow reputation. Quest 93925 unlock, bead cost, vendor standing and the conditional estimate also use the reputation guide listed above. Missing Mail source NPC 7458.
+https://db.icy-veins.com/wow-forever/quests/93952
+https://db.icy-veins.com/wow-forever/items/258323

@@ -1,7 +1,7 @@
 local addon, R = ...
 if not Polestar.RegisterPack({
     addon = addon, id = "hyjal-direct", title = "猎萨 · 木喉到海加尔",
-    author = "Codex", version = "1.2.2", format = 11, license = "GPL-3.0-only",
+    author = "Codex", version = "1.3.0", format = 11, license = "GPL-3.0-only",
     source = "Polestar, QuestieDB Forever and Ati's community guide. See SOURCES.txt.",
 }) then return end
 
