@@ -34,7 +34,9 @@ s("进树皮地穴 · 奥西的熊果","先跟奥西说话，再回地表采浆�
 })
 s("地穴议事处 · 拜见两位长老","与松语长老和雾爪长老分别对话，按日志确认完成再交。",{
     q("turnin",93831,"甜爪果酱","osi"),q("accept",91697,"拜见长老","osi"),
-    field(91697,21.8,79.3),q("turnin",91697,"拜见长老","mist"),
+    { t = "talk", quest = 91697, title = "拜见长老", npc = 256650, npcName = "Elder Pinespeaker", oi = 1, map = 2482, x = 21.63, y = 79.32 },
+    { t = "talk", quest = 91697, title = "拜见长老", npc = 256627, npcName = "Elder Mistpaw", oi = 2, map = 2482, x = 21.57, y = 78.95 },
+    q("turnin",91697,"拜见长老","mist"),
     q("accept",93826,"让死木闻风丧胆","mist"),q("accept",93825,"树皮祝福","suma"),
     q("accept",93827,"风中的护符","thobon"),
 })

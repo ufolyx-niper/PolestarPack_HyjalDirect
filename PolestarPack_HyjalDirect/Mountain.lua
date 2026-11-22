@@ -29,13 +29,15 @@ s("山麓航点旁 · 古树哨站接伤药和狩猎", "苦涩的塞拉斯特鲁
     { t = "accept", quest = 91755, title = "以叶包扎", npc = 248367, npcName = "Hyacinth", map = 2482, x = 54.01, y = 84.24, minLevel = 54 },
     { t = "accept", quest = 91923, title = "苦涩的塞拉斯特鲁斯", npc = 265586, npcName = "Thylaen", map = 2482, x = 54.73, y = 84.6, optional = true, minLevel = 54 },
 })
-s("营地外采土、打鹿，沿灌木丛做工坊目标", "采野草、杀灌木和雄鹿。带种子的角色按日志对灌木使用任务物品；精英巡逻单拉。", {
+s("营地外采土、打鹿，沿灌木丛做工坊目标", "采野草、杀灌木和雄鹿。种子袋用于田野里的投石车、飞行器和弩炮残骸；精英巡逻单拉。", {
     { t = "collect", quest = 91754, title = "敷上一点泥土", item = 247889, count = 6, oi = 1, itemName = "纯净的土壤", map = 2482, x = 56.5, y = 83.5, fromId = 562377, fromKind = "object", from = "Untainted Soil" },
     { t = "collect", quest = 93759, title = "大自然的馈赠", item = 251641, count = 2, oi = 1, itemName = "海加尔鹿肉排", map = 2482, x = 56.5, y = 83.5, fromId = 248041, fromKind = "npc", from = "Hyjal Stag" },
     { t = "kill", quest = 92594, title = "姑且算作引火物", npc = 248395, count = 15, oi = 1, target = "Tainted Shrubbery", map = 2482, x = 65.55, y = 73.85 },
     { t = "collect", quest = 91755, title = "以叶包扎", item = 247892, count = 12, oi = 1, itemName = "翠绿的叶子", map = 2482, x = 65.55, y = 73.85, fromId = 248395, fromKind = "npc", from = "Tainted Shrubbery" },
     { t = "collect", quest = 93759, title = "大自然的馈赠", item = 267289, count = 6, oi = 2, itemName = "血色飞镖块茎", map = 2482, x = 59.5, y = 73.5, fromId = 626685, fromKind = "object", from = "Scarlet Dart Tuber" },
-    { t = "complete", quest = 93747, title = "战火中新生的绿意", map = 2482, x = 70.4, y = 70.7 },
+    { t = "use", quest = 93747, title = "战火中新生的绿意", item = 269944, itemName = "魔法种子袋", oi = 2, map = 2482, x = 62.9, y = 82.9, note = "在投石车残骸旁使用种子袋。" },
+    { t = "use", quest = 93747, title = "战火中新生的绿意", item = 269944, itemName = "魔法种子袋", oi = 3, map = 2482, x = 66.1, y = 83.5, note = "在飞行器残骸旁使用种子袋。" },
+    { t = "use", quest = 93747, title = "战火中新生的绿意", item = 269944, itemName = "魔法种子袋", oi = 1, map = 2482, x = 66.3, y = 79.2, note = "在弩炮残骸旁使用种子袋。" },
     { t = "collect", quest = 91923, title = "苦涩的塞拉斯特鲁斯", item = 282028, oi = 1, itemName = "塞拉斯特鲁斯的断叶", map = 2482, x = 69.66, y = 72.34, fromId = 249051, fromKind = "npc", from = "Celastrus the Bitter", optional = true },
 })
 s("隐士小屋和石碑 · 安葬遗骸", "石碑在小屋西侧。用完任务物品再回隐士处接信。", {
@@ -97,7 +99,7 @@ s("骨堆 · 取骨髓后回小鬼", "处理骨堆再清怪。交骨髓后和小
     { t = "collect", quest = 96262, title = "刺手的松果", item = 273304, count = 10, oi = 1, itemName = "刺手的松果", map = 2482, x = 40, y = 83.5, fromId = 651048, fromKind = "object", from = "Prickly Pinecone" },
     { t = "turnin", quest = 96255, title = "聚合骨髓", npc = 263757, npcName = "Felflick", map = 2482, x = 49.3, y = 77.1 },
     { t = "accept", quest = 96322, title = "苦涩的复仇", npc = 263757, npcName = "Felflick", map = 2482, x = 49.3, y = 77.1, pre = { 96255 }, minLevel = 54 },
-    { t = "talk", npc = 263757, npcName = "Felflick", map = 2482, x = 49.3, y = 77.1 },
+    { t = "complete", quest = 96322, note = "与 Felflick 交谈并决定他的命运，等日志显示可交。", npc = 263757, npcName = "Felflick", map = 2482, x = 49.3, y = 77.1 },
     { t = "collect", quest = 95380, title = "丰饶之源", item = 273008, count = 8, oi = 1, itemName = "邪能软泥", map = 2482, x = 48.01, y = 81.9, fromId = 243509, fromKind = "npc", from = "Noxious Slime" },
     { t = "turnin", quest = 95380, title = "丰饶之源", npc = 257753, npcName = "Curious Crow", map = 2482, x = 48.16, y = 85.72 },
     { t = "turnin", quest = 96262, title = "刺手的松果", npc = 257753, npcName = "Curious Crow", map = 2482, x = 48.16, y = 85.72 },
@@ -105,8 +107,8 @@ s("骨堆 · 取骨髓后回小鬼", "处理骨堆再清怪。交骨髓后和小
     { t = "turnin", quest = 96322, title = "苦涩的复仇", npc = 257753, npcName = "Curious Crow", map = 2482, x = 48.16, y = 85.72 },
 })
 s("灰烬营地四处工作台 · 做实验", "依次到黏液、炼金、疾病和容器台互动，以任务日志计数为准，回乌鸦接部落哨站引导。", {
-    { t = "goto", text = "Slime Workstation", map = 2482, x = 43.4, y = 76.2 },
-    { t = "goto", text = "Alchemy Workstation", map = 2482, x = 44.3, y = 72.5 },
+    { t = "goto", text = "Slime Workstation", map = 2482, x = 42.5, y = 73.1 },
+    { t = "goto", text = "Alchemy Workstation", map = 2482, x = 44.3, y = 68.3 },
     { t = "goto", text = "Disease Workstation", map = 2482, x = 46.6, y = 68 },
     { t = "goto", text = "Vessel Workstation", map = 2482, x = 49.6, y = 69.6 },
     { t = "complete", quest = 95316, title = "实验方法" },
@@ -129,7 +131,7 @@ s("月光林地 · 永夜港见德迪利特", "有部落航线就飞月光林地
 s("月光林地西南 · 与古树交谈，回永夜港", "与奥罗凯交谈观看事件，结束后回德迪利特；拿到契约再返海加尔。", {
     { t = "turnin", quest = 96209, title = "古树奥罗凯", npc = 216289, npcName = "奥洛凯", map = 1450, x = 41.45, y = 43.63, f = "e" },
     { t = "accept", quest = 95006, title = "被盗的力量", npc = 216289, npcName = "奥洛凯", map = 1450, x = 41.45, y = 43.63, f = "e", pre = { 96209 }, minLevel = 54 },
-    { t = "talk", npc = 216289, npcName = "奥洛凯", map = 1450, x = 41.45, y = 43.63, f = "e" },
+    { t = "complete", quest = 95006, note = "与奥洛凯交谈，等幻象结束。", npc = 216289, npcName = "奥洛凯", map = 1450, x = 41.45, y = 43.63, f = "e" },
     { t = "turnin", quest = 95006, title = "被盗的力量", npc = 11802, npcName = "德迪利特·星焰", map = 1450, x = 56.15, y = 30.71 },
     { t = "accept", quest = 93773, title = "契约", npc = 11802, npcName = "德迪利特·星焰", map = 1450, x = 56.15, y = 30.71, pre = { 95006 }, minLevel = 54 },
 })
@@ -172,6 +174,8 @@ s("西北营地 · 给伤员备草药", "在哨站北面山谷采十二份蓝花
     { t = "complete", quest = 96616 },
     { t = "turnin", quest = 96616, title = "疗愈伤者的草药", npc = 244512, npcName = "Ortak Lomgok", map = 2482, x = 12.9, y = 52.9 },
     { t = "accept", quest = 96622, title = "无痛的安息", npc = 244512, npcName = "Ortak Lomgok", map = 2482, x = 12.9, y = 52.9, minLevel = 54, pre = { 96616 } },
+    { t = "talk", quest = 96622, npc = 265895, npcName = "Maruke", map = 2482, x = 11.9, y = 48.6 },
+    { t = "talk", quest = 96622, npc = 265862, npcName = "Enho Runehoof", map = 2482, x = 12.9, y = 53.7 },
     { t = "complete", quest = 96622 },
     { t = "turnin", quest = 96622, title = "无痛的安息", npc = 244512, npcName = "Ortak Lomgok", map = 2482, x = 12.9, y = 52.9 },
 })
@@ -224,9 +228,9 @@ s("瀑布与三只幼兽", "给泉水目标取水，沿标注的三处找幼兽�
     { t = "complete", quest = 96979, title = "神圣泉水", map = 2482, x = 41.6, y = 44.6 },
 })
 s("寻找三只幼兽","到三处标记分别与幼兽互动，确认日志后回营地。",{
-    { t = "goto", text = "Solstice", map = 2482, x = 38.5, y = 47.3 },
-    { t = "goto", text = "Brie", map = 2482, x = 41.4, y = 36.4 },
-    { t = "goto", text = "Whisperfur", map = 2482, x = 27, y = 61.9 },
+    { t = "talk", quest = 93615, oi = 1, npc = 255685, npcName = "Solstice", map = 2482, x = 38.5, y = 47.3 },
+    { t = "talk", quest = 93615, oi = 3, npc = 255773, npcName = "Brie", map = 2482, x = 41.4, y = 36.4 },
+    { t = "talk", quest = 93615, oi = 2, npc = 255771, npcName = "Whisperfur", map = 2482, x = 27, y = 61.9 },
     {t="complete",quest=93615},
 }, {{k="turnedin", q=93615, neg=true}, {k="complete", q=93615, neg=true}})
 s("野鹿与神龛 · 两位荒野之神", "先把鹿肉交给卡拉斯，再清捕食者。前往玛洛西斯接骨头与被窃生命，同地的目标一起拾取。", {
@@ -283,6 +287,9 @@ s("北部营地 · 军团、剑圣与狐狸", nil, {
     { t = "accept", quest = 92335, title = "军团登临的余烬", npc = 259695, npcName = "Renalard", map = 2482, x = 60.04, y = 49.35, pre = { 96964 }, minLevel = 54 },
     { t = "accept", quest = 96971, title = "智取恶魔", npc = 259695, npcName = "Renalard", map = 2482, x = 60.04, y = 49.35, pre = { 96964 }, minLevel = 54 },
 }).label = "north-start"
+extra("达埃古恩外沿 · 顺路接地狱犬尖刺", "56级起可先在东北侧找玛埃里安，接任务后打达埃古恩的亵渎猎犬，两项一起计数。稍后还会经过他。", {
+    { t = "accept", quest = 97009, title = "玛埃里安的苦难", npc = 267097, npcName = "Maerion Thaelemaches", map = 2482, x = 63.28, y = 25.85, minLevel = 56, optional = true },
+}, "north-return")
 s("达埃古恩 · 恶魔、工坊零件和两座篝火", "在两处营火点火；同时拾工坊零件、军团灰烬。遇到巡逻精英时让宠物单拉。", {
     { t = "kill", quest = 95793, title = "遏制恶魔大军", npc = 249229, count = 12, oi = 1, target = "Felguard Sentinel", map = 2482, x = 57.12, y = 46.18 },
     { t = "collect", quest = 92960, title = "汲取短暂精华", item = 271220, count = 6, oi = 1, itemName = "短暂精华", map = 2482, x = 55.65, y = 43.61, fromId = 249230, fromKind = "npc", from = "Defiling Hound" },
@@ -315,7 +322,7 @@ extra("剑圣精英 · 随亚希罗突袭", "点完两座篝火并交回后，�
     {t="turnin",quest=96983,npc=267121,npcName="Yashiro",map=2482,x=49.33,y=32.63},
 }, "north-return")
 s("恶魔双目标 · 抽取力量再击败", "先对目标使用无尽影响之眼。玛埃里安需要的地狱犬尖刺在邻近废墟拾取；交回后当场接《盲目的复仇》，去部落法师塔顶投符文；折回交差再去打可选的双恶魔。", {
-    { t = "kill", quest = 96003, title = "引出恶徒", npc = 263394, oi = 1, target = "Bethra'zel the Feeble", map = 2482, x = 57.61, y = 31.11 },
+    { t = "kill", quest = 96003, title = "引出恶徒", npc = 263394, count = 1, oi = 1, target = "Bethra'zel the Feeble", map = 2482, x = 57.61, y = 31.11 },
     { t = "accept", quest = 97009, title = "玛埃里安的苦难", npc = 267097, npcName = "Maerion Thaelemaches", map = 2482, x = 63.28, y = 25.85, minLevel = 56 },
     { t = "collect", quest = 97009, title = "玛埃里安的苦难", item = 276100, count = 12, oi = 1, itemName = "地狱犬尖刺", map = 2482, x = 63.17, y = 25.99, fromId = 249230, fromKind = "npc", from = "Defiling Hound" },
     { t = "turnin", quest = 97009, title = "玛埃里安的苦难", npc = 267097, npcName = "Maerion Thaelemaches", map = 2482, x = 63.28, y = 25.85 },
@@ -345,10 +352,8 @@ s("永恒峰 · 向山顶营地报到", nil, {
     { t = "accept", quest = 93584, title = "终结教派", npc = 254915, npcName = "Thisalee Crow", map = 2482, x = 68.99, y = 49.99, minLevel = 56 },
     { t = "accept", quest = 93407, title = "爪中之刺", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.85, y = 50.6, minLevel = 57 },
 }).label = "north-return"
-s("永恒峰 · 哨兵、信使和引兽任务", "在山顶营地接齐，然后和黑刺教徒同圈。引出的奇美拉为精英。", {
-    { t = "accept", quest = 93127, title = "峰顶哨兵", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6, minLevel = 54 },
+s("永恒峰 · 黑刺信使", "先接信使任务。交清《爪中之刺》后，再接峰顶哨兵和可选的引兽任务。", {
     { t = "accept", quest = 93422, title = "黑刺断讯", npc = 255151, npcName = "Rhylin Stonethorn", map = 2482, x = 70.7, y = 51.3, minLevel = 54 },
-    { t = "accept", quest = 93444, title = "诱捕野兽", npc = 41861, npcName = "Fayran Elthas", map = 2482, x = 68.7, y = 44.1, optional = true, minLevel = 56 },
 })
 
 s("山麓工坊 · 交零件后测试机械", "飞山麓，到工坊交零件并完成试验。想打奇美拉，在工坊当场接《擂鼓惹祸》，再往隐士小屋走。随后去小屋，三份荒野之神的交付都在隐士这里。", {
@@ -381,10 +386,8 @@ s("黑刺营地 · 法杖、工具和净风材料", "按任务日志用法杖、
     { t = "collect", quest = 92017, title = "净化之风", item = 274287, count = 5, oi = 1, itemName = "大角鹰兽的羽毛", map = 2482, x = 74.16, y = 39.83, fromId = 249491, fromKind = "npc", from = "Mountain Squallclimber" },
     { t = "collect", quest = 92017, title = "净化之风", item = 274288, count = 3, oi = 2, itemName = "油滑的奇美拉毛发", map = 2482, x = 70.35, y = 41.5, fromId = 249490, fromKind = "npc", from = "Wildbreath Chimaerok" },
 }).label = "cult-camp"
-s("黑刺信使与山脊 · 完成山顶三项差事", "击败巡逻信使，收集文书，并重新激活营地北、西、南的哨兵石。在北边山脊先取夜刃豹后腿作饵，再打引出的奇美拉；人少时可跳过引兽。", {
-    { t = "complete", quest = 93127, map = 2482, x = 74, y = 35 },
+s("黑刺营地 · 截下信使", "击败巡逻信使并收集文书。回峰顶交完《爪中之刺》再接哨兵和引兽。", {
     { t = "complete", quest = 93422, map = 2482, x = 74, y = 35 },
-    { t = "complete", quest = 93444, map = 2482, x = 69.3, y = 23.6, optional = true },
 })
 s("峰顶回报 · 备第二圈任务", nil, {
     { t = "turnin", quest = 92169, title = "偿还契约", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.85, y = 50.6 },
@@ -394,44 +397,49 @@ s("峰顶回报 · 备第二圈任务", nil, {
     { t = "turnin", quest = 92017, title = "净化之风", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.71 },
 })
 s("山顶营地 · 分交战果再接后续", nil, {
-    { t = "turnin", quest = 93127, title = "峰顶哨兵", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6 },
     { t = "turnin", quest = 93422, title = "黑刺断讯", npc = 255151, npcName = "Rhylin Stonethorn", map = 2482, x = 70.7, y = 51.3 },
-    { t = "turnin", quest = 93444, title = "诱捕野兽", npc = 41861, npcName = "Fayran Elthas", map = 2482, x = 68.7, y = 44.1, optional = true },
+    { t = "accept", quest = 93127, title = "峰顶哨兵", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6, minLevel = 54, preAll = { 93407 } },
+    { t = "accept", quest = 93444, title = "诱捕野兽", npc = 41861, npcName = "Fayran Elthas", map = 2482, x = 68.7, y = 44.1, optional = true, minLevel = 56, preAll = { 93407 } },
     { t = "accept", quest = 93547, title = "荆棘之策", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6, pre = { 93407 }, minLevel = 57 },
     { t = "accept", quest = 96303, title = "迷雾中的记忆", npc = 254915, npcName = "Thisalee Crow", map = 2482, x = 69, y = 50, pre = { 93584 }, minLevel = 54 },
     { t = "accept", quest = 96302, title = "遗骸净礼", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7, pre = { 92017 }, minLevel = 56 },
     { t = "accept", quest = 92016, title = "探寻树根", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7, pre = { 92017 }, minLevel = 56 },
-    { t = "accept", quest = 96301, title = "涤净力量", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7, minLevel = 54 },
     { t = "accept", quest = 92833, title = "维翰的陨落", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6, pre = { 92169 }, minLevel = 54 },
 })
-s("旅店、诺达希尔与永恒之井", "在旅店、仓塔、德鲁伊营地附近种荆棘；在世界树旁放五个小精灵，用熏香处理遗骸。带心脏到永恒之井，检查深根。各任务用日志内物品核对进度。", {
+s("旅店、诺达希尔与永恒之井", "激活营地北、西、南的哨兵石。已接引兽的队伍从北侧山脊取夜刃豹后腿作饵，再打引出的奇美拉。在旅店、仓塔、德鲁伊营地附近种荆棘；在世界树旁放五个小精灵，用熏香处理遗骸。检查深根；交完引兽后可带心脏再访永恒之井。各任务用日志内物品核对进度。", {
+    { t = "complete", quest = 93127, map = 2482, x = 74, y = 35 },
+    { t = "complete", quest = 93444, map = 2482, x = 69.3, y = 23.6, optional = true },
     { t = "complete", quest = 93547 },
     { t = "complete", quest = 96303 },
     { t = "complete", quest = 96302 },
     { t = "complete", quest = 92016, map = 2482, x = 74.3, y = 36.2 },
-    { t = "complete", quest = 96301, map = 2482, x = 72.8, y = 38.4 },
 })
 s("北侧高地 · 用山之杖挑战维翰", "先用法杖解除维翰的力量，再击败他。到57级后可读身后的书架接研究笔记。属于精英段，任一人缺任务或需要增援可回头补。", {
     { t = "complete", quest = 92833, map = 2482, x = 76.7, y = 33.6 },
     { t = "accept", quest = 93521, title = "诸神的挑战者", object = 710894, objName = "Bookshelf", map = 2482, x = 76.9, y = 35.4, minLevel = 57 },
 })
-extra("永恒峰回程 · 回报杰雷曼", "在峰顶查看提亚拉是否提供回报。要接就带到宁静摇篮，桥边用乌鸦雕像唤出杰雷曼，再去西南地穴。", {
-    {t="accept",quest=99670,title="回到杰雷曼身边",npc=40833,npcName="Tiala Whitemane",map=2482,x=68.85,y=50.6,minLevel=54},
-    {t="turnin",quest=99670,npc=267158,npcName="Jereman",map=2482,x=41.27,y=45.33},
-}, "bag-vendor")
 s("永恒峰交任务 · 回山麓隐士收尾", "峰顶交付时顺便问提亚拉是否有《回到杰雷曼身边》，先接着，去西南地穴前在宁静摇篮交。带消息飞往山麓，隐士小屋在东南。随后回树皮地穴换包。", {
+    { t = "turnin", quest = 93127, title = "峰顶哨兵", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6 },
+    { t = "turnin", quest = 93444, title = "诱捕野兽", npc = 41861, npcName = "Fayran Elthas", map = 2482, x = 68.7, y = 44.1, optional = true },
     { t = "turnin", quest = 93547, title = "荆棘之策", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6 },
     { t = "turnin", quest = 96303, title = "迷雾中的记忆", npc = 254915, npcName = "Thisalee Crow", map = 2482, x = 69, y = 50 },
     { t = "turnin", quest = 96302, title = "遗骸净礼", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7 },
     { t = "turnin", quest = 92016, title = "探寻树根", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7 },
-    { t = "turnin", quest = 96301, title = "涤净力量", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7 },
     { t = "turnin", quest = 92833, title = "维翰的陨落", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6 },
+    {t="accept",quest=99670,title="回到杰雷曼身边",npc=40833,npcName="Tiala Whitemane",map=2482,x=68.85,y=50.6,minLevel=54,preAll={92833},optional=true},
     { t = "turnin", quest = 93521, title = "诸神的挑战者", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6 },
+    { t = "accept", quest = 96301, title = "涤净力量", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7, preAll = { 93444 }, minLevel = 54 },
+    { t = "complete", quest = 96301, map = 2482, x = 72.8, y = 38.4 },
+    { t = "turnin", quest = 96301, title = "涤净力量", npc = 264795, npcName = "Marn Euhorn", map = 2482, x = 68.3, y = 46.7 },
     { t = "accept", quest = 93848, title = "圆满收工", npc = 40833, npcName = "Tiala Whitemane", map = 2482, x = 68.9, y = 50.6, pre = { 92833 }, minLevel = 54 },
     { t = "turnin", quest = 93848, title = "圆满收工", npc = 256222, npcName = "Ketharas", map = 2482, x = 73.3, y = 81.9 },
 })
 
 
+
+extra("宁静摇篮回程 · 回报杰雷曼", "已接回报的角色在桥边用乌鸦雕像唤出杰雷曼。", {
+    {t="turnin",quest=99670,npc=267158,npcName="Jereman",map=2482,x=41.27,y=45.33,optional=true},
+}, "bag-vendor")
 
 -- Returning to the two distant memorials or Sen'jin is an opt-in errand after the bags.
 local H = 2482
